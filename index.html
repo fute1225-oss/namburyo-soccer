@@ -1,20 +1,881 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ja">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>和歌山南陵高校男子サッカー部 | OFFICIAL WEBSITE</title>
-<style>
-:root{
-  --purple:#2b0a4a; --purple2:#45106f; --accent:#7b39bd;
-  --bg:#050307; --card:#0c0811; --line:#2c163d;
-  --text:#f6f2fb; --muted:#b8adc3; --gold:#d1ae53;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,"Noto Sans JP",sans-serif;line-height:1.7}
-a{color:inherit;text-decoration:none}
-.nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px 6%;background:rgba(5,3,7,.95);border-bottom:1px solid var(--line)}
-.logo{font-weight:900;letter-spacing:1px} .logo span{color:var(--accent)}
-.menu{display:flex;gap:20px;font-size:13px;font-weight:800}
-.menu a:hover{color:var(--accent)}
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>和歌山南陵高校 男子サッカー部</title>
+
+  <style>
+
+    * {
+
+      box-sizing: border-box;
+
+      margin: 0;
+
+      padding: 0;
+
+    }
+
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
+    body {
+
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+
+        "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+
+      background: #050a18;
+
+      color: #ffffff;
+
+    }
+
+    /* ===== 固定メニューボタン ===== */
+
+    .menu-button {
+
+      position: fixed;
+
+      top: 18px;
+
+      right: 18px;
+
+      width: 56px;
+
+      height: 56px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: #ffffff;
+
+      z-index: 9999;
+
+      cursor: pointer;
+
+      box-shadow: 0 4px 20px rgba(0,0,0,.35);
+
+    }
+
+    .menu-button span {
+
+      display: block;
+
+      width: 24px;
+
+      height: 2px;
+
+      background: #111;
+
+      margin: 5px auto;
+
+      transition: .3s;
+
+    }
+
+    .menu-button.active span:nth-child(1) {
+
+      transform: translateY(7px) rotate(45deg);
+
+    }
+
+    .menu-button.active span:nth-child(2) {
+
+      opacity: 0;
+
+    }
+
+    .menu-button.active span:nth-child(3) {
+
+      transform: translateY(-7px) rotate(-45deg);
+
+    }
+
+    /* ===== メニュー ===== */
+
+    .menu {
+
+      position: fixed;
+
+      inset: 0;
+
+      background: rgba(3,8,20,.97);
+
+      z-index: 9998;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      pointer-events: none;
+
+      transition: .3s;
+
+    }
+
+    .menu.open {
+
+      opacity: 1;
+
+      visibility: visible;
+
+      pointer-events: auto;
+
+    }
+
+    .menu a {
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 22px;
+
+      font-weight: 700;
+
+      margin: 13px 0;
+
+      letter-spacing: .08em;
+
+    }
+
+    .menu a:hover {
+
+      color: #4da3ff;
+
+    }
+
+    /* ===== HERO ===== */
+
+    .hero {
+
+      min-height: 100vh;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      background:
+
+        linear-gradient(rgba(2,8,25,.48),rgba(2,8,25,.86)),
+
+        url("hero.jpg") center/cover no-repeat;
+
+      padding: 90px 20px 50px;
+
+    }
+
+    .hero-content {
+
+      max-width: 900px;
+
+    }
+
+    .hero .small {
+
+      letter-spacing: .25em;
+
+      font-size: 13px;
+
+      margin-bottom: 20px;
+
+    }
+
+    .hero h1 {
+
+      font-size: clamp(32px,8vw,70px);
+
+      line-height: 1.15;
+
+      margin-bottom: 20px;
+
+    }
+
+    .hero h2 {
+
+      font-size: clamp(18px,4vw,30px);
+
+      color: #61a8ff;
+
+      margin-bottom: 15px;
+
+    }
+
+    .hero p {
+
+      font-size: 16px;
+
+      line-height: 2;
+
+    }
+
+    /* ===== 共通 ===== */
+
+    section {
+
+      padding: 90px 20px;
+
+    }
+
+    .container {
+
+      max-width: 1000px;
+
+      margin: auto;
+
+    }
+
+    .section-title {
+
+      text-align: center;
+
+      margin-bottom: 50px;
+
+    }
+
+    .section-title .en {
+
+      color: #4d9fff;
+
+      letter-spacing: .25em;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+    }
+
+    .section-title h2 {
+
+      font-size: 32px;
+
+      margin-top: 10px;
+
+    }
+
+    /* ===== ABOUT ===== */
+
+    .about {
+
+      background: #081226;
+
+    }
+
+    .about p {
+
+      max-width: 780px;
+
+      margin: auto;
+
+      text-align: center;
+
+      line-height: 2.1;
+
+      font-size: 16px;
+
+    }
+
+    .catch {
+
+      display: block;
+
+      color: #62a9ff;
+
+      font-size: 24px;
+
+      font-weight: 800;
+
+      margin-bottom: 25px;
+
+    }
+
+    /* ===== 練習会申込 ===== */
+
+    .trial {
+
+      background:
+
+        linear-gradient(135deg,#07152c,#0b2345);
+
+      text-align: center;
+
+    }
+
+    .trial-message {
+
+      max-width: 700px;
+
+      margin: 0 auto 35px;
+
+      font-size: 16px;
+
+      line-height: 2;
+
+    }
+
+    .apply-button {
+
+      display: inline-block;
+
+      padding: 18px 42px;
+
+      border-radius: 50px;
+
+      background: #2678ff;
+
+      color: white;
+
+      text-decoration: none;
+
+      font-weight: 800;
+
+      font-size: 17px;
+
+      box-shadow: 0 8px 30px rgba(38,120,255,.35);
+
+      transition: .25s;
+
+    }
+
+    .apply-button:hover {
+
+      transform: translateY(-2px);
+
+      background: #4890ff;
+
+    }
+
+    .apply-button.disabled {
+
+      opacity: .55;
+
+      cursor: not-allowed;
+
+    }
+
+    .form-note {
+
+      font-size: 12px;
+
+      opacity: .6;
+
+      margin-top: 15px;
+
+    }
+
+    /* ===== PHILOSOPHY ===== */
+
+    .philosophy {
+
+      background: #050a18;
+
+    }
+
+    .philosophy-box {
+
+      max-width: 800px;
+
+      margin: auto;
+
+      padding: 45px 30px;
+
+      border: 1px solid rgba(80,155,255,.35);
+
+      background: rgba(255,255,255,.025);
+
+      text-align: center;
+
+    }
+
+    .philosophy-box h3 {
+
+      color: #5ca6ff;
+
+      font-size: 26px;
+
+      margin-bottom: 20px;
+
+    }
+
+    .philosophy-box p {
+
+      line-height: 2;
+
+    }
+
+    /* ===== CONTACT ===== */
+
+    .contact {
+
+      background: #081226;
+
+      text-align: center;
+
+    }
+
+    .contact p {
+
+      line-height: 2;
+
+    }
+
+    /* ===== FOOTER ===== */
+
+    footer {
+
+      padding: 35px 20px;
+
+      background: #020611;
+
+      text-align: center;
+
+      font-size: 12px;
+
+      color: #8c9ab0;
+
+    }
+
+    @media(max-width:600px) {
+
+      section {
+
+        padding: 70px 20px;
+
+      }
+
+      .menu-button {
+
+        top: 14px;
+
+        right: 14px;
+
+      }
+
+      .section-title h2 {
+
+        font-size: 27px;
+
+      }
+
+      .trial-message {
+
+        text-align: left;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<!-- 固定メニューボタン -->
+
+<button
+
+  class="menu-button"
+
+  id="menuButton"
+
+  type="button"
+
+  aria-label="メニューを開く"
+
+  aria-expanded="false"
+
+>
+
+  <span></span>
+
+  <span></span>
+
+  <span></span>
+
+</button>
+
+<nav class="menu" id="menu">
+
+  <a href="#home">HOME</a>
+
+  <a href="#about">TEAM</a>
+
+  <a href="#trial">練習会申込</a>
+
+  <a href="#philosophy">PHILOSOPHY</a>
+
+  <a href="#contact">CONTACT</a>
+
+</nav>
+
+<!-- HERO -->
+
+<header class="hero" id="home">
+
+  <div class="hero-content">
+
+    <div class="small">
+
+      WAKAYAMA NANRYO HIGH SCHOOL
+
+    </div>
+
+    <h1>
+
+      和歌山南陵高校<br>
+
+      男子サッカー部
+
+    </h1>
+
+    <h2>
+
+      攻撃は最大の防御なり
+
+    </h2>
+
+    <p>
+
+      自分たちから試合を動かすサッカー
+
+    </p>
+
+  </div>
+
+</header>
+
+<!-- TEAM -->
+
+<section class="about" id="about">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <div class="en">TEAM</div>
+
+      <h2>和歌山南陵高校 男子サッカー部</h2>
+
+    </div>
+
+    <p>
+
+      <span class="catch">
+
+        自分たちから試合を動かすサッカー
+
+      </span>
+
+      和歌山南陵高校男子サッカー部は、
+
+      全国の舞台を目指し、
+
+      日々のトレーニングに取り組んでいます。
+
+      <br><br>
+
+      選手一人ひとりが主体性を持ち、
+
+      仲間とともに成長しながら、
+
+      観る人の心を動かすサッカーを目指します。
+
+    </p>
+
+  </div>
+
+</section>
+
+<!-- 練習会申込 -->
+
+<section class="trial" id="trial">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <div class="en">
+
+        TRIAL SESSION
+
+      </div>
+
+      <h2>
+
+        練習会申込
+
+      </h2>
+
+    </div>
+
+    <div class="trial-message">
+
+      練習会実施日程決定後、下記の申込ボタンが押せます。<br>
+
+      皆様のお申し込みを心よりお待ちしております。
+
+    </div>
+
+    <!--
+
+      Googleフォーム完成後、
+
+      下の href="" の中にGoogleフォームURLを入れてください。
+
+      例：
+
+      href="https://forms.gle/xxxxxxxx"
+
+    -->
+
+    <a
+
+      class="apply-button disabled"
+
+      id="applyButton"
+
+      href=""
+
+      aria-disabled="true"
+
+    >
+
+      練習会に申し込む
+
+    </a>
+
+    <div class="form-note">
+
+      ※申込フォームは練習会日程決定後に公開します。
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PHILOSOPHY -->
+
+<section class="philosophy" id="philosophy">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <div class="en">
+
+        PHILOSOPHY
+
+      </div>
+
+      <h2>
+
+        私たちのサッカー
+
+      </h2>
+
+    </div>
+
+    <div class="philosophy-box">
+
+      <h3>
+
+        攻撃は最大の防御なり
+
+      </h3>
+
+      <p>
+
+        ボールを奪うために前へ出る。<br>
+
+        ゴールを奪うために前へ進む。<br><br>
+
+        受け身になるのではなく、
+
+        自分たちから試合を動かし、
+
+        勝利を目指します。
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <div class="en">
+
+        CONTACT
+
+      </div>
+
+      <h2>
+
+        お問い合わせ
+
+      </h2>
+
+    </div>
+
+    <p>
+
+      和歌山南陵高校<br>
+
+      男子サッカー部
+
+    </p>
+
+  </div>
+
+</section>
+
+<footer>
+
+  © WAKAYAMA NANRYO HIGH SCHOOL FOOTBALL CLUB
+
+</footer>
+
+<script>
+
+  const menuButton =
+
+    document.getElementById("menuButton");
+
+  const menu =
+
+    document.getElementById("menu");
+
+  function closeMenu() {
+
+    menu.classList.remove("open");
+
+    menuButton.classList.remove("active");
+
+    menuButton.setAttribute(
+
+      "aria-expanded",
+
+      "false"
+
+    );
+
+  }
+
+  menuButton.addEventListener(
+
+    "click",
+
+    function () {
+
+      const isOpen =
+
+        menu.classList.toggle("open");
+
+      menuButton.classList.toggle(
+
+        "active",
+
+        isOpen
+
+      );
+
+      menuButton.setAttribute(
+
+        "aria-expanded",
+
+        isOpen ? "true" : "false"
+
+      );
+
+    }
+
+  );
+
+  document
+
+    .querySelectorAll(".menu a")
+
+    .forEach(function(link) {
+
+      link.addEventListener(
+
+        "click",
+
+        closeMenu
+
+      );
+
+    });
+
+  /* Googleフォームがまだ無い間は
+
+     申込ボタンを押しても移動しません */
+
+  const applyButton =
+
+    document.getElementById("applyButton");
+
+  applyButton.addEventListener(
+
+    "click",
+
+    function(event) {
+
+      const url =
+
+        applyButton.getAttribute("href");
+
+      if (!url) {
+
+        event.preventDefault();
+
+        alert(
+
+          "練習会の日程・申込フォームは現在準備中です。"
+
+        );
+
+      }
+
+    }
+
+  );
+
+</script>
+
+</body>
+
+</html>
