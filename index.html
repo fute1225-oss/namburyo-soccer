@@ -32,139 +32,113 @@
 
       font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
 
-        "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+        "Hiragino Kaku Gothic ProN", "Yu Gothic", Arial, sans-serif;
 
-      background: #050a18;
+      background: #071426;
 
-      color: #ffffff;
+      color: #fff;
+
+      line-height: 1.8;
 
     }
 
-    /* ===== 固定メニューボタン ===== */
+    /* 固定メニューボタン */
 
-    .menu-button {
+    .menu-btn {
 
       position: fixed;
 
-      top: 18px;
+      top: 20px;
 
-      right: 18px;
+      right: 20px;
 
-      width: 56px;
+      width: 54px;
 
-      height: 56px;
+      height: 54px;
 
       border: none;
 
       border-radius: 50%;
 
-      background: #ffffff;
+      background: rgba(0, 71, 171, 0.95);
 
       z-index: 9999;
 
       cursor: pointer;
 
-      box-shadow: 0 4px 20px rgba(0,0,0,.35);
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      align-items: center;
+
+      gap: 5px;
+
+      box-shadow: 0 4px 15px rgba(0,0,0,.35);
 
     }
 
-    .menu-button span {
-
-      display: block;
+    .menu-btn span {
 
       width: 24px;
 
       height: 2px;
 
-      background: #111;
-
-      margin: 5px auto;
+      background: #fff;
 
       transition: .3s;
 
     }
-
-    .menu-button.active span:nth-child(1) {
-
-      transform: translateY(7px) rotate(45deg);
-
-    }
-
-    .menu-button.active span:nth-child(2) {
-
-      opacity: 0;
-
-    }
-
-    .menu-button.active span:nth-child(3) {
-
-      transform: translateY(-7px) rotate(-45deg);
-
-    }
-
-    /* ===== メニュー ===== */
 
     .menu {
 
       position: fixed;
 
-      inset: 0;
+      top: 0;
 
-      background: rgba(3,8,20,.97);
+      right: -100%;
+
+      width: 78%;
+
+      max-width: 330px;
+
+      height: 100vh;
+
+      background: rgba(3, 18, 38, 0.98);
 
       z-index: 9998;
 
-      display: flex;
+      padding: 100px 35px 40px;
 
-      flex-direction: column;
-
-      align-items: center;
-
-      justify-content: center;
-
-      opacity: 0;
-
-      visibility: hidden;
-
-      pointer-events: none;
-
-      transition: .3s;
+      transition: .35s;
 
     }
 
     .menu.open {
 
-      opacity: 1;
-
-      visibility: visible;
-
-      pointer-events: auto;
+      right: 0;
 
     }
 
     .menu a {
 
-      color: white;
+      display: block;
+
+      color: #fff;
 
       text-decoration: none;
 
-      font-size: 22px;
+      font-size: 18px;
 
       font-weight: 700;
 
-      margin: 13px 0;
+      padding: 16px 0;
 
-      letter-spacing: .08em;
-
-    }
-
-    .menu a:hover {
-
-      color: #4da3ff;
+      border-bottom: 1px solid rgba(255,255,255,.15);
 
     }
-
-    /* ===== HERO ===== */
 
     .hero {
 
@@ -178,287 +152,213 @@
 
       text-align: center;
 
+      padding: 80px 20px;
+
       background:
 
-        linear-gradient(rgba(2,8,25,.48),rgba(2,8,25,.86)),
+        linear-gradient(rgba(2,13,30,.6), rgba(2,13,30,.85)),
 
-        url("hero.jpg") center/cover no-repeat;
-
-      padding: 90px 20px 50px;
-
-    }
-
-    .hero-content {
-
-      max-width: 900px;
-
-    }
-
-    .hero .small {
-
-      letter-spacing: .25em;
-
-      font-size: 13px;
-
-      margin-bottom: 20px;
+        linear-gradient(135deg, #063b74, #071426 65%);
 
     }
 
     .hero h1 {
 
-      font-size: clamp(32px,8vw,70px);
+      font-size: clamp(36px, 9vw, 76px);
 
       line-height: 1.15;
+
+      letter-spacing: .05em;
+
+      margin-bottom: 22px;
+
+    }
+
+    .hero .sub {
+
+      color: #69b7ff;
+
+      font-size: 15px;
+
+      letter-spacing: .18em;
+
+      font-weight: 700;
 
       margin-bottom: 20px;
 
     }
 
-    .hero h2 {
+    .hero .catch {
 
-      font-size: clamp(18px,4vw,30px);
+      font-size: clamp(20px, 5vw, 34px);
 
-      color: #61a8ff;
+      font-weight: 800;
 
-      margin-bottom: 15px;
-
-    }
-
-    .hero p {
-
-      font-size: 16px;
-
-      line-height: 2;
+      margin-bottom: 10px;
 
     }
 
-    /* ===== 共通 ===== */
+    .hero .slogan {
+
+      font-size: 17px;
+
+      color: #d9eaff;
+
+    }
 
     section {
 
-      padding: 90px 20px;
+      padding: 85px 22px;
 
     }
 
-    .container {
+    .inner {
 
-      max-width: 1000px;
+      width: min(100%, 1000px);
 
-      margin: auto;
+      margin: 0 auto;
 
     }
 
     .section-title {
 
-      text-align: center;
-
-      margin-bottom: 50px;
-
-    }
-
-    .section-title .en {
-
-      color: #4d9fff;
-
-      letter-spacing: .25em;
-
       font-size: 13px;
 
-      font-weight: 700;
+      color: #5db0ff;
+
+      letter-spacing: .22em;
+
+      font-weight: 800;
+
+      margin-bottom: 8px;
 
     }
 
-    .section-title h2 {
+    h2 {
 
-      font-size: 32px;
+      font-size: clamp(30px, 7vw, 48px);
 
-      margin-top: 10px;
+      line-height: 1.25;
+
+      margin-bottom: 30px;
 
     }
-
-    /* ===== ABOUT ===== */
 
     .about {
 
-      background: #081226;
+      background: #0b1c32;
 
     }
 
     .about p {
 
-      max-width: 780px;
+      max-width: 760px;
 
-      margin: auto;
-
-      text-align: center;
-
-      line-height: 2.1;
+      color: #d6e0eb;
 
       font-size: 16px;
 
     }
 
-    .catch {
+    /* 練習会申込 */
 
-      display: block;
-
-      color: #62a9ff;
-
-      font-size: 24px;
-
-      font-weight: 800;
-
-      margin-bottom: 25px;
-
-    }
-
-    /* ===== 練習会申込 ===== */
-
-    .trial {
+    .entry {
 
       background:
 
-        linear-gradient(135deg,#07152c,#0b2345);
+        linear-gradient(135deg, rgba(0,92,184,.25), rgba(3,18,38,.98));
 
       text-align: center;
 
     }
 
-    .trial-message {
+    .entry h2 {
 
-      max-width: 700px;
+      font-size: clamp(38px, 9vw, 64px);
+
+    }
+
+    .entry-text {
 
       margin: 0 auto 35px;
+
+      max-width: 700px;
 
       font-size: 16px;
 
       line-height: 2;
 
+      color: #e6eef7;
+
     }
 
-    .apply-button {
+    .entry-btn {
 
       display: inline-block;
 
-      padding: 18px 42px;
+      padding: 17px 38px;
 
-      border-radius: 50px;
+      border-radius: 999px;
 
-      background: #2678ff;
+      background: #1687ed;
 
-      color: white;
+      color: #fff;
 
       text-decoration: none;
 
-      font-weight: 800;
-
       font-size: 17px;
 
-      box-shadow: 0 8px 30px rgba(38,120,255,.35);
+      font-weight: 800;
 
-      transition: .25s;
-
-    }
-
-    .apply-button:hover {
-
-      transform: translateY(-2px);
-
-      background: #4890ff;
+      box-shadow: 0 8px 28px rgba(22,135,237,.35);
 
     }
 
-    .apply-button.disabled {
+    .entry-btn:hover {
 
-      opacity: .55;
-
-      cursor: not-allowed;
+      opacity: .85;
 
     }
-
-    .form-note {
-
-      font-size: 12px;
-
-      opacity: .6;
-
-      margin-top: 15px;
-
-    }
-
-    /* ===== PHILOSOPHY ===== */
 
     .philosophy {
 
-      background: #050a18;
+      background: #061222;
 
     }
 
     .philosophy-box {
 
-      max-width: 800px;
+      border-left: 4px solid #1687ed;
 
-      margin: auto;
-
-      padding: 45px 30px;
-
-      border: 1px solid rgba(80,155,255,.35);
-
-      background: rgba(255,255,255,.025);
-
-      text-align: center;
+      padding: 10px 0 10px 24px;
 
     }
 
-    .philosophy-box h3 {
+    .philosophy-box strong {
 
-      color: #5ca6ff;
+      display: block;
 
-      font-size: 26px;
+      font-size: clamp(24px, 6vw, 40px);
 
-      margin-bottom: 20px;
-
-    }
-
-    .philosophy-box p {
-
-      line-height: 2;
+      margin-bottom: 12px;
 
     }
-
-    /* ===== CONTACT ===== */
-
-    .contact {
-
-      background: #081226;
-
-      text-align: center;
-
-    }
-
-    .contact p {
-
-      line-height: 2;
-
-    }
-
-    /* ===== FOOTER ===== */
 
     footer {
 
-      padding: 35px 20px;
-
-      background: #020611;
+      padding: 40px 20px;
 
       text-align: center;
 
+      color: #8fa2b7;
+
       font-size: 12px;
 
-      color: #8c9ab0;
+      background: #030b15;
 
     }
 
-    @media(max-width:600px) {
+    @media (max-width: 600px) {
 
       section {
 
@@ -466,23 +366,11 @@
 
       }
 
-      .menu-button {
+      .menu-btn {
 
-        top: 14px;
+        top: 16px;
 
-        right: 14px;
-
-      }
-
-      .section-title h2 {
-
-        font-size: 27px;
-
-      }
-
-      .trial-message {
-
-        text-align: left;
+        right: 16px;
 
       }
 
@@ -494,135 +382,89 @@
 
 <body>
 
-<!-- 固定メニューボタン -->
+  <button class="menu-btn" id="menuBtn" aria-label="メニュー">
 
-<button
+    <span></span>
 
-  class="menu-button"
+    <span></span>
 
-  id="menuButton"
+    <span></span>
 
-  type="button"
+  </button>
 
-  aria-label="メニューを開く"
+  <nav class="menu" id="menu">
 
-  aria-expanded="false"
+    <a href="#home">HOME</a>
 
->
+    <a href="#about">TEAM</a>
 
-  <span></span>
+    <a href="#entry">練習会申込</a>
 
-  <span></span>
+    <a href="#philosophy">PHILOSOPHY</a>
 
-  <span></span>
+  </nav>
 
-</button>
+  <header class="hero" id="home">
 
-<nav class="menu" id="menu">
+    <div>
 
-  <a href="#home">HOME</a>
+      <p class="sub">WAKAYAMA NANRYO HIGH SCHOOL</p>
 
-  <a href="#about">TEAM</a>
+      <h1>
 
-  <a href="#trial">練習会申込</a>
+        和歌山南陵高校<br>
 
-  <a href="#philosophy">PHILOSOPHY</a>
+        男子サッカー部
 
-  <a href="#contact">CONTACT</a>
+      </h1>
 
-</nav>
-
-<!-- HERO -->
-
-<header class="hero" id="home">
-
-  <div class="hero-content">
-
-    <div class="small">
-
-      WAKAYAMA NANRYO HIGH SCHOOL
-
-    </div>
-
-    <h1>
-
-      和歌山南陵高校<br>
-
-      男子サッカー部
-
-    </h1>
-
-    <h2>
-
-      攻撃は最大の防御なり
-
-    </h2>
-
-    <p>
-
-      自分たちから試合を動かすサッカー
-
-    </p>
-
-  </div>
-
-</header>
-
-<!-- TEAM -->
-
-<section class="about" id="about">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <div class="en">TEAM</div>
-
-      <h2>和歌山南陵高校 男子サッカー部</h2>
-
-    </div>
-
-    <p>
-
-      <span class="catch">
+      <p class="catch">
 
         自分たちから試合を動かすサッカー
 
-      </span>
+      </p>
 
-      和歌山南陵高校男子サッカー部は、
+      <p class="slogan">
 
-      全国の舞台を目指し、
+        攻撃は最大の防御なり
 
-      日々のトレーニングに取り組んでいます。
+      </p>
 
-      <br><br>
+    </div>
 
-      選手一人ひとりが主体性を持ち、
+  </header>
 
-      仲間とともに成長しながら、
+  <section class="about" id="about">
 
-      観る人の心を動かすサッカーを目指します。
+    <div class="inner">
 
-    </p>
+      <p class="section-title">TEAM</p>
 
-  </div>
+      <h2>WAKAYAMA NANRYO FOOTBALL</h2>
 
-</section>
+      <p>
 
-<!-- 練習会申込 -->
+        和歌山南陵高校男子サッカー部は、
 
-<section class="trial" id="trial">
+        自分たちから試合を動かし、攻撃的なサッカーで
 
-  <div class="container">
+        勝利を目指します。
 
-    <div class="section-title">
+        日々のトレーニングを通して選手一人ひとりが成長し、
 
-      <div class="en">
+        チームとして高い目標へ挑戦していきます。
 
-        TRIAL SESSION
+      </p>
 
-      </div>
+    </div>
+
+  </section>
+
+  <section class="entry" id="entry">
+
+    <div class="inner">
+
+      <p class="section-title">JOIN US</p>
 
       <h2>
 
@@ -630,249 +472,99 @@
 
       </h2>
 
-    </div>
+      <p class="entry-text">
 
-    <div class="trial-message">
+        練習会実施日程決定後、下記の申込ボタンが押せます。<br>
 
-      練習会実施日程決定後、下記の申込ボタンが押せます。<br>
-
-      皆様のお申し込みを心よりお待ちしております。
-
-    </div>
-
-    <!--
-
-      Googleフォーム完成後、
-
-      下の href="" の中にGoogleフォームURLを入れてください。
-
-      例：
-
-      href="https://forms.gle/xxxxxxxx"
-
-    -->
-
-    <a
-
-      class="apply-button disabled"
-
-      id="applyButton"
-
-      href=""
-
-      aria-disabled="true"
-
-    >
-
-      練習会に申し込む
-
-    </a>
-
-    <div class="form-note">
-
-      ※申込フォームは練習会日程決定後に公開します。
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- PHILOSOPHY -->
-
-<section class="philosophy" id="philosophy">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <div class="en">
-
-        PHILOSOPHY
-
-      </div>
-
-      <h2>
-
-        私たちのサッカー
-
-      </h2>
-
-    </div>
-
-    <div class="philosophy-box">
-
-      <h3>
-
-        攻撃は最大の防御なり
-
-      </h3>
-
-      <p>
-
-        ボールを奪うために前へ出る。<br>
-
-        ゴールを奪うために前へ進む。<br><br>
-
-        受け身になるのではなく、
-
-        自分たちから試合を動かし、
-
-        勝利を目指します。
+        皆様のお申し込みを心よりお待ちしております。
 
       </p>
 
+      <!--
+
+        Googleフォーム完成後、
+
+        下の href="" の中にGoogleフォームのURLを入れてください。
+
+      -->
+
+      <a
+
+        class="entry-btn"
+
+        href=""
+
+        onclick="return false;"
+
+      >
+
+        練習会に申し込む
+
+      </a>
+
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <section class="philosophy" id="philosophy">
 
-<!-- CONTACT -->
+    <div class="inner">
 
-<section class="contact" id="contact">
+      <p class="section-title">PHILOSOPHY</p>
 
-  <div class="container">
+      <h2>OUR FOOTBALL</h2>
 
-    <div class="section-title">
+      <div class="philosophy-box">
 
-      <div class="en">
+        <strong>攻撃は最大の防御なり</strong>
 
-        CONTACT
+        <p>
+
+          常に主導権を握り、
+
+          自分たちから試合を動かす。
+
+          和歌山南陵高校男子サッカー部は、
+
+          攻撃的な姿勢を大切にします。
+
+        </p>
 
       </div>
 
-      <h2>
-
-        お問い合わせ
-
-      </h2>
-
     </div>
 
-    <p>
+  </section>
 
-      和歌山南陵高校<br>
+  <footer>
 
-      男子サッカー部
+    © WAKAYAMA NANRYO HIGH SCHOOL FOOTBALL CLUB
 
-    </p>
+  </footer>
 
-  </div>
-
-</section>
-
-<footer>
-
-  © WAKAYAMA NANRYO HIGH SCHOOL FOOTBALL CLUB
-
-</footer>
+  <script>
 
 <script>
 
-  const menuButton =
+const menuBtn = document.getElementById("menuBtn");
 
-    document.getElementById("menuButton");
+const menu = document.getElementById("menu");
 
-  const menu =
+menuBtn.addEventListener("click", function () {
 
-    document.getElementById("menu");
+  menu.classList.toggle("open");
 
-  function closeMenu() {
+});
+
+document.querySelectorAll(".menu a").forEach(function (link) {
+
+  link.addEventListener("click", function () {
 
     menu.classList.remove("open");
 
-    menuButton.classList.remove("active");
+  });
 
-    menuButton.setAttribute(
-
-      "aria-expanded",
-
-      "false"
-
-    );
-
-  }
-
-  menuButton.addEventListener(
-
-    "click",
-
-    function () {
-
-      const isOpen =
-
-        menu.classList.toggle("open");
-
-      menuButton.classList.toggle(
-
-        "active",
-
-        isOpen
-
-      );
-
-      menuButton.setAttribute(
-
-        "aria-expanded",
-
-        isOpen ? "true" : "false"
-
-      );
-
-    }
-
-  );
-
-  document
-
-    .querySelectorAll(".menu a")
-
-    .forEach(function(link) {
-
-      link.addEventListener(
-
-        "click",
-
-        closeMenu
-
-      );
-
-    });
-
-  /* Googleフォームがまだ無い間は
-
-     申込ボタンを押しても移動しません */
-
-  const applyButton =
-
-    document.getElementById("applyButton");
-
-  applyButton.addEventListener(
-
-    "click",
-
-    function(event) {
-
-      const url =
-
-        applyButton.getAttribute("href");
-
-      if (!url) {
-
-        event.preventDefault();
-
-        alert(
-
-          "練習会の日程・申込フォームは現在準備中です。"
-
-        );
-
-      }
-
-    }
-
-  );
+});
 
 </script>
 
